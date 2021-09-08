@@ -1,15 +1,20 @@
 import Vue from 'vue'
+import Vuex from 'vuex'
 import App from './App.vue'
 import Buefy from 'buefy'
-import '@/scss/buefy.scss'
-import store from '@/store' // short for @/store/index
+import '@/scss/customColors.scss'
+import store from '@/store' 
 
+
+Vue.config.devtools = true
+
+// Styling library
 Vue.use(Buefy)
 
-Vue.config.productionTip = false
-
-Vue.use(store)
+new Vuex.Store(store)
 
 new Vue({
+  store,
   render: h => h(App),
 }).$mount('#app')
+
