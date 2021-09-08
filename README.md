@@ -1,4 +1,8 @@
-# Mastermina Game made in VueJS 🔵⚪️🔴🟢🟡🟣⚫️🟤🟠
+# Mastermind Game 🔵⚪️🔴🟢🟡🟣⚫️🟤🟠
+
+## made with VueJS
+
+___
 
 ## Rules
 
@@ -10,9 +14,11 @@
 
 - After filling a line with your guesses and clicking on the 'Check' button, the computer responses with the result of your guess.
 
-- For each color in your guess that is in the correct color and correct position in the code sequence, the computer display a small red color on the right side of the current guess.
+- For each color in your guess that is in the correct color and correct position in the code sequence, the computer display a small green color on the right side of the current guess.
 
-- For each color in your guess that is in the correct color but is NOT in the correct position in the code sequence, the computer display a small white color on the right side of the current guess.
+- For each color in your guess that is in the correct color but is NOT in the correct position in the code sequence, the computer display a small yellow color on the right side of the current guess.
+
+- For each color in your guess that is in the incorrect color AND in the incorrect position in the code sequence, the computer display a small whitish color.
 
 - The order of color displays in the right panel does not correlate with the positioning of chosen colors in a row.
 
