@@ -11,6 +11,9 @@ export default {
     ];
     context.commit("INITIATE_GAME", correctSet);
   },
+  updateGameMatrix(context, data) {
+    context.commit("UPDATE_GAME_MATRIX", data);
+  },
 };
 
 export function randNum() {

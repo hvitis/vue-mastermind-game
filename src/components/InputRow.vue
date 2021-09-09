@@ -1,69 +1,43 @@
 <template>
   <tr>
     <th>{{ rownr + 1 }}</th>
-    <template>
-      <td>
-        <b-field>
-          <b-radio
-            v-for="(answer, index) in answers"
-            :key="index"
-            v-model="radio"
-            size="is-large"
-            native-value="true"
-            :type="`is-${this.$mapColors(answer)}`"
-          >
-          </b-radio>
-        </b-field>
-      </td>
-    </template>
-    <template v-if="answers.length >= 0 || answers.length <= 3">
-      <td>
-        <b-field>
-         <b-radio
-            v-model="colorFirst"
-            size="is-large"
-            native-value="gray"
-            :type="`is-${this.$mapColors(colorFirst)}`"
-          >
-          </b-radio>
-           <b-radio
-            v-model="colorSecond"
-            size="is-large"
-            native-value="gray"
-            :type="`is-${this.$mapColors(colorSecond)}`"
-          >
-          </b-radio>
-           <b-radio
-            v-model="colorThird"
-            size="is-large"
-            native-value="gray"
-            :type="`is-${this.$mapColors(colorThird)}`"
-          >
-          </b-radio>
-           <b-radio
-            v-model="colorFourth"
-            size="is-large"
-            native-value="gray"
-            :type="`is-${this.$mapColors(colorFourth)}`"
-          >
-          </b-radio>
-        </b-field>
-      </td>
-    </template>
     <td>
-      <hint :hints="hints" :row="rownr"></hint>
+      <b-field v-if="answers">
+        <single-cell
+          v-for="(answer, inRowInputNumber) in answers"
+          :key="inRowInputNumber"
+          :rownr="rownr"
+          :inrownumber="inRowInputNumber"
+          :value="answer"
+          @filledColor="updateComponent"
+        ></single-cell>
+      </b-field>
+    </td>
+    <td>
+      <hint :hints="hints" :rownr="rownr"></hint>
     </td>
   </tr>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import Hint from "./Hint.vue";
+import SingleCell from "./SingleCell.vue";
 export default {
-  components: { Hint },
+  components: { Hint, SingleCell },
   name: "InputRow",
   props: ["answers", "rownr"],
   data() {
-    return { hints: null, radio: "true" };
+    return { hints: null };
+  },
+  computed: {
+    ...mapGetters(["getSelectedColor"]),
+  },
+  methods: {
+    updateComponent() {
+      console.log('updating')
+      this.$forceUpdate();
+    },
   },
 };
 </script>

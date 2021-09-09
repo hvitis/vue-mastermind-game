@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-field v-if="hints">
+    <b-field>
       <b-radio
         v-for="(value, index) in hints"
         :key="index"

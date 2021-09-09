@@ -14,11 +14,12 @@
           <tbody>
             <answers-row></answers-row>
             <input-row
-              v-for="(answers, index) in answerMatrix"
-              :key="index"
+              v-for="(answers, index) in this.answerMatrix"
               :answers="answers"
               :rownr="index"
+              :key="index"
             ></input-row>
+            
           </tbody>
         </table>
         <div class="flex flex-row">
@@ -36,15 +37,21 @@ import AppTitle from "./components/AppTitle.vue";
 import InputRow from "./components/InputRow.vue";
 import AnswersRow from "./components/AnswersRow.vue";
 import GameControl from "./components/GameControl.vue";
+import { mapGetters } from "vuex";
+
 export default {
   name: "App",
   components: { InputRow, AppTitle, ColorChoice, AnswersRow, GameControl },
   data() {
     return {
-      answerMatrix: [[], [], [], [], [], [], [], [], [], []],
+      answerMatrix: null,
     };
   },
+  computed: {
+    ...mapGetters(["getGameState"]),
+  },
   mounted() {
+    this.answerMatrix = this.getGameState
     // Game will persist state of user answers but the final answer will change
     // this.$store.dispatch("setCorrectSet");
   },
