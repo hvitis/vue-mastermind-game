@@ -27,5 +27,8 @@ export default {
   },
   GAME_OVER(state){
     state.gameOver = true
+  },
+  START_GAME(state){
+    state.startGame = true
   }
 };

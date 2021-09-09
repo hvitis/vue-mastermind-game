@@ -10,6 +10,7 @@ export default {
       randNum(),
     ];
     context.commit("INITIATE_GAME", correctSet);
+    context.commit("START_GAME");
   },
   updateGameMatrix(context, data) {
     context.commit("UPDATE_GAME_MATRIX", data);
@@ -19,7 +20,7 @@ export default {
   },
   gameOver(context) {
     context.commit("GAME_OVER");
-  },
+  }
 };
 
 export function randNum() {

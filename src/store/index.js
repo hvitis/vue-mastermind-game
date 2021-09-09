@@ -29,6 +29,7 @@ const defaultState = () => ({
     [0, 0, 0, 0],
   ],
   gameOver: false,
+  gameStarted: false
 });
 
 export default new Vuex.Store({

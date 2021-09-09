@@ -37,13 +37,17 @@ export default {
     return { radio: null };
   },
   computed: {
-    ...mapGetters(["getSelectedColor"]),
+    ...mapGetters(["getSelectedColor", "gameStarted"]),
   },
   mounted() {
     this.radio = this.mapToColor(this.value);
   },
   methods: {
     fillColor() {
+      if (!this.gameStarted) {
+        this.$buefy.dialog.alert("Start the game first!");
+        return;
+      }
       // In order to fill color, we need to mutate the state
       // of thx game matrix, sending the rowNumber, inRowInputNumber and colorNumberValue
       let colorNumberValue = this.mapToNumber(this.getSelectedColor);
