@@ -122,6 +122,7 @@ export default {
   data() {
     return {
       chosenColor: null,
+      // color0: "gray", // default for start all matrix
       color1: "orange",
       color2: "salmon",
       color3: "brown",

@@ -4,4 +4,5 @@ export default {
   getGameState: (state) => state.gameState,
   getCurrentRow: (state) => state.currentRow,
   getCurrentAnswers: (state) => state.gameState[state.currentRow],
+  isPlaying: (state) => state.gameOver,
 };

@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <AppTitle></AppTitle>
     <div class="columns is-mobile">
       <div class="column is-2 is-offset-3">
+        <AppTitle></AppTitle>
         <table class="table">
           <thead>
             <tr>
@@ -19,13 +19,18 @@
               :rownr="index"
               :key="index"
             ></input-row>
-            
           </tbody>
         </table>
         <div class="flex flex-row">
           <game-control></game-control>
           <color-choice></color-choice>
         </div>
+        <footer>
+          <p>
+            Author: Adam Piskorek<br />
+            <a href="mailto:hello@hvitis.dev">hello@hvitis.dev</a>
+          </p>
+        </footer>
       </div>
     </div>
   </div>
@@ -51,9 +56,9 @@ export default {
     ...mapGetters(["getGameState"]),
   },
   mounted() {
-    this.answerMatrix = this.getGameState
+    this.answerMatrix = this.getGameState;
     // Game will persist state of user answers but the final answer will change
-    // this.$store.dispatch("setCorrectSet");
+    // this.$store.dispatch("startGame");
   },
 };
 </script>
