@@ -116,13 +116,12 @@
 </template>
 
 <script>
-// import { store } from 'vuex'
-// import { mapActions } from 'vuex'
+import { mapGetters } from "vuex";
 
 export default {
   data() {
     return {
-      chosenColor: "orange",
+      chosenColor: null,
       color1: "orange",
       color2: "salmon",
       color3: "brown",
@@ -137,12 +136,14 @@ export default {
       color12: "black",
     };
   },
+  computed: {
+    ...mapGetters(["getSelectedColor"]),
+  },
+  mounted() {
+    this.chosenColor = this.getSelectedColor
+  },
   methods: {
-    // ...mapActions({
-    //   add: 'increment' // map `this.add()` to `this.$store.dispatch('increment')`
-    // }),
     pickcolor(color) {
-      console.log(this.$store);
       this.chosenColor = color;
       this.$store.dispatch("selectColor", color);
     },

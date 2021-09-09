@@ -1,3 +1,4 @@
 export default {
-  selectedColor: state => state.selectedColor,
+  getSelectedColor: (state) => state.selectedColor,
+  getCorrectColorsSet: (state) => state.correctColorsSet,
 };

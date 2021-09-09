@@ -12,6 +12,7 @@
             </tr>
           </thead>
           <tbody>
+            <answers-row></answers-row>
             <input-row
               v-for="(answers, index) in answerMatrix"
               :key="index"
@@ -20,7 +21,10 @@
             ></input-row>
           </tbody>
         </table>
-        <color-choice></color-choice>
+        <div class="flex flex-row">
+          <game-control></game-control>
+          <color-choice></color-choice>
+        </div>
       </div>
     </div>
   </div>
@@ -30,13 +34,19 @@
 import ColorChoice from "./components/ColorChoice.vue";
 import AppTitle from "./components/AppTitle.vue";
 import InputRow from "./components/InputRow.vue";
+import AnswersRow from "./components/AnswersRow.vue";
+import GameControl from "./components/GameControl.vue";
 export default {
   name: "App",
-  components: { InputRow, AppTitle, ColorChoice },
+  components: { InputRow, AppTitle, ColorChoice, AnswersRow, GameControl },
   data() {
     return {
-      answerMatrix: [[], [], [], [], [], [], [], [], [], [1, 12, 5, 6]],
+      answerMatrix: [[], [], [], [], [], [], [], [], [], []],
     };
+  },
+  mounted() {
+    // Game will persist state of user answers but the final answer will change
+    // this.$store.dispatch("setCorrectSet");
   },
 };
 </script>
