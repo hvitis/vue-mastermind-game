@@ -1,0 +1,143 @@
+// Import Bulma's core
+@import "~bulma/sass/utilities/_all";
+
+// Set your colors
+$primary: #8c67ef;
+$primary-light: findLightColor($primary);
+$primary-dark: findDarkColor($primary);
+$primary-invert: findColorInvert($primary);
+
+$gray: #e3e8ec;
+$gray-invert: findColorInvert($gray);
+
+$pink: #f18dec;
+$pink-invert: findColorInvert($pink);
+
+$salmon: #bb8764;
+$salmon-invert: findColorInvert($salmon);
+
+$ultramarine: #2014c9;
+$ultramarine-invert: findColorInvert($ultramarine);
+
+$orange: #f59300;
+$orange-invert: findColorInvert($orange);
+
+$fluorescence: #45f300;
+$fluorescence-invert: findColorInvert($fluorescence);
+
+$aqua: #00c0f0;
+$aqua-invert: findColorInvert($aqua);
+
+$brown: #833b1a;
+$brown-invert: findColorInvert($brown);
+
+$perl: #68676e;
+$perl-invert: findColorInvert($perl);
+
+// Lists and maps
+$custom-colors: null !default;
+$custom-shades: null !default;
+
+// Setup $colors to use as bulma classes (e.g. 'is-gray')
+$colors: mergeColorMaps(
+    (
+        "white": (
+            $white,
+            $black,
+        ),
+        "gray": (
+            $gray,
+            $gray-invert,
+        ),
+        "ultramarine": (
+            $ultramarine,
+            $ultramarine-invert,
+        ),
+        "pink": (
+            $pink,
+            $pink-invert,
+        ),
+        "salmon": (
+            $salmon,
+            $salmon-invert,
+        ),
+        "fluorescence": (
+            $fluorescence,
+            $fluorescence-invert,
+        ),
+        "aqua": (
+            $aqua,
+            $aqua-invert,
+        ),
+        "orange": (
+            $orange,
+            $orange-invert,
+        ),
+        "perl": (
+            $perl,
+            $perl-invert,
+        ),
+        "brown": (
+            $brown,
+            $brown-invert,
+        ),
+        "black": (
+            $black,
+            $white,
+        ),
+        "light": (
+            $light,
+            $light-invert,
+        ),
+        "dark": (
+            $dark,
+            $dark-invert,
+        ),
+        "primary": (
+            $primary,
+            $primary-invert,
+            $primary-light,
+            $primary-dark,
+        ),
+        "link": (
+            $link,
+            $link-invert,
+            $link-light,
+            $link-dark,
+        ),
+        "info": (
+            $info,
+            $info-invert,
+            $info-light,
+            $info-dark,
+        ),
+        "success": (
+            $success,
+            $success-invert,
+            $success-light,
+            $success-dark,
+        ),
+        "warning": (
+            $warning,
+            $warning-invert,
+            $warning-light,
+            $warning-dark,
+        ),
+        "danger": (
+            $danger,
+            $danger-invert,
+            $danger-light,
+            $danger-dark,
+        ),
+    ),
+    $custom-colors
+);
+
+// Links
+$link: $primary;
+$link-invert: $primary-invert;
+$link-focus-border: $primary;
+
+// Import Bulma and Buefy styles
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
