@@ -20,7 +20,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-
+// TODO: Show colors when player wins and loses
 export default {
   name: "AnswersRow",
   computed: {

@@ -1,7 +1,7 @@
 <template>
   <b-field>
     <b-radio
-    class="my-3"
+      class="my-3"
       v-model="radio"
       size="is-large"
       :native-value="mapToColor(this.value)"
@@ -47,16 +47,14 @@ export default {
       // In order to fill color, we need to mutate the state
       // of thx game matrix, sending the rowNumber, inRowInputNumber and colorNumberValue
       let colorNumberValue = this.mapToNumber(this.getSelectedColor);
-    this.radio = this.mapToColor(this.value);
+      this.radio = this.mapToColor(this.value);
       this.$store.dispatch("updateGameMatrix", {
         rowNumber: this.rownr,
         inRowInputNumber: this.inrownumber,
         colorNumberValue: colorNumberValue,
       });
-      this.$emit("filledColor", colorNumberValue)
-      
+      this.$emit("filledColor", colorNumberValue);
     },
-
     mapToColor(colorNumber) {
       return colors[colorNumber];
     },

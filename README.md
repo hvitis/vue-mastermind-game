@@ -1,8 +1,14 @@
 # Mastermind Game 🔵⚪️🔴🟢🟡🟣⚫️🟤🟠
 
-## made with VueJS
+## Gameplay
 
-___
+![Gameplay](./imgs/gameplay.png "gameplay")
+
+![win](./imgs/win.png "win")
+
+## Play
+
+Enter [here][1] to play the game.
 
 ## Rules
 
@@ -25,11 +31,6 @@ ___
 - You win the game when you manage to guess all the colors in the code sequence and when they all in the right position.
 
 - You lose the game if you use all attempts (10) without guessing the computer code sequence.
-
-
-## Play
-
-Enter [here][1] to play the game.
 
 ### Info
 

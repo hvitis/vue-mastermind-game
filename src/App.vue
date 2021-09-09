@@ -21,16 +21,11 @@
             ></input-row>
           </tbody>
         </table>
-        <div class="flex flex-row">
+        <div class="mb-5">
           <game-control></game-control>
           <color-choice></color-choice>
         </div>
-        <footer>
-          <p>
-            Author: Adam Piskorek<br />
-            <a href="mailto:hello@hvitis.dev">hello@hvitis.dev</a>
-          </p>
-        </footer>
+        <custom-footer></custom-footer>
       </div>
     </div>
   </div>
@@ -42,11 +37,12 @@ import AppTitle from "./components/AppTitle.vue";
 import InputRow from "./components/InputRow.vue";
 import AnswersRow from "./components/AnswersRow.vue";
 import GameControl from "./components/GameControl.vue";
+import CustomFooter from "./components/CustomFooter.vue";
 import { mapGetters } from "vuex";
 
 export default {
   name: "App",
-  components: { InputRow, AppTitle, ColorChoice, AnswersRow, GameControl },
+  components: { InputRow, AppTitle, ColorChoice, AnswersRow, GameControl, CustomFooter },
   data() {
     return {
       answerMatrix: null,
@@ -57,8 +53,6 @@ export default {
   },
   mounted() {
     this.answerMatrix = this.getGameState;
-    // Game will persist state of user answers but the final answer will change
-    // this.$store.dispatch("startGame");
   },
 };
 </script>
