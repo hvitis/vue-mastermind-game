@@ -15,12 +15,17 @@ export default {
       [0, 0, 0, 0],
       [0, 0, 0, 0],
     ]
+    state.currentRow = 9
     state.selectedColor = "gray"
-    state.isPlaying = true;
-    state.numberOfTurns = 10;
     state.correctColorsSet = colorSet;
   },
   UPDATE_GAME_MATRIX(state, {...data}){
     state.gameState[data.rowNumber][data.inRowInputNumber] = data.colorNumberValue
+  },
+  INCREASE_ROW(state){
+    state.currentRow -= 1
+  },
+  GAME_OVER(state){
+    state.gameOver = true
   }
 };

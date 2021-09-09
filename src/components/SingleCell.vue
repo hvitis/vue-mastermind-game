@@ -1,6 +1,7 @@
 <template>
   <b-field>
     <b-radio
+    class="my-3"
       v-model="radio"
       size="is-large"
       :native-value="mapToColor(this.value)"
@@ -24,6 +25,7 @@ let colors = [
   "fluorescence",
   "aqua",
   "info",
+  "ultramarine",
   "perl",
   "success",
   "black",

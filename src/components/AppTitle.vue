@@ -1,14 +1,12 @@
 <template>
-  <section class="hero">
-    <div class="hero-body">
-      <p class="title">
-        Mastermind Game
-      </p>
-      <p class="subtitle">
-        Made in VueJS
-      </p>
-    </div>
-  </section>
+  <div>
+    <p class="title">
+      Mastermind Game
+    </p>
+    <p class="subtitle">
+      Made in VueJS
+    </p>
+  </div>
 </template>
 
 <script>
