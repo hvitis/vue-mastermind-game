@@ -14,7 +14,17 @@
       </b-field>
     </td>
     <td>
-      <hint :hints="hints" :rownr="rownr"></hint>
+      <hint
+        v-if="hints.length != 0"
+        :hints="hints"
+        :rownr="rownr"
+        @checkanswer="onCheckAnswer"
+      ></hint>
+      <div v-if="hints.length == 0 && rownr == getCurrentRow">
+        <b-button type="is-success" @click="() => onCheckAnswer()"
+          >Check</b-button
+        >
+      </div>
     </td>
   </tr>
 </template>
@@ -28,15 +38,49 @@ export default {
   name: "InputRow",
   props: ["answers", "rownr"],
   data() {
-    return { hints: null };
+    return { hints: [] };
   },
   computed: {
-    ...mapGetters(["getSelectedColor"]),
+    ...mapGetters([
+      "getSelectedColor",
+      "getCurrentRow",
+      "getCurrentAnswers",
+      "getCorrectColorsSet",
+    ]),
   },
   methods: {
     updateComponent() {
-      console.log('updating')
       this.$forceUpdate();
+    },
+    onCheckAnswer() {
+      // If position && color => green - 2
+      // If color             => yellow - 1
+      let hints = [0, 0, 0, 0];
+      let correctColors = Array.from(this.getCorrectColorsSet);
+      let currentAnswers = Array.from(this.getCurrentAnswers);
+      for (let index = 0; index < currentAnswers.length; index++) {
+        if (currentAnswers[index] === correctColors[index]) {
+          hints.pop();
+          hints.push(2);
+          hints.sort();
+          hints.reverse();
+          delete correctColors[index];
+          delete currentAnswers[index];
+        }
+      }
+
+      for (let index = 0; index < currentAnswers.length; index++) {
+        if (currentAnswers[index] === correctColors[index]) {
+          hints.push(1);
+          hints.sort();
+          hints.reverse();
+          hints.pop();
+          delete correctColors[index];
+        }
+      }
+      hints.sort();
+      this.hints = hints;
+      this.$store.dispatch("moveLevelHigher");
     },
   },
 };

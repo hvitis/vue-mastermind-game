@@ -13,10 +13,21 @@ const persistingVuex = new VuexPersistence({
 });
 
 const defaultState = () => ({
-  currentRow: 0,
+  currentRow: 9,
   selectedColor: "gray",
   correctColorsSet: [],
-  gameState: [],
+  gameState: [
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+  ],
   gameOver: false,
   isPlaying: false,
   numberOfTurns: 10,
