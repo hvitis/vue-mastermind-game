@@ -37,4 +37,4 @@ Enter [here][1] to play the game.
 Rules taken and modified from [here][0].
 
 [0]: https://www.web-games-online.com/mastermind/rules.php
-[1]: https://naughty-neumann-edacfc.netlify.app/
+[1]: https://vue-mastermind-game.netlify.app/
