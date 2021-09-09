@@ -46,6 +46,7 @@ export default {
       "getCurrentRow",
       "getCurrentAnswers",
       "getCorrectColorsSet",
+      "gameStarted"
     ]),
   },
   methods: {
@@ -77,6 +78,10 @@ export default {
       });
     },
     onCheckAnswer() {
+      if (!this.gameStarted) {
+        this.$buefy.dialog.alert("Start the game first!");
+        return;
+      }
       // If position && color => green - 2
       // If color             => yellow - 1
       let hints = [0, 0, 0, 0];

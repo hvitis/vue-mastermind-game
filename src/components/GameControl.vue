@@ -7,6 +7,7 @@ export default {
   methods: {
     startGame() {
       this.$store.dispatch("startGame");
+      this.$emit("start")
     },
   },
 };

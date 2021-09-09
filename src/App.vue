@@ -22,7 +22,7 @@
           </tbody>
         </table>
         <div class="mb-5">
-          <game-control></game-control>
+          <game-control @start="onStart"></game-control>
           <color-choice></color-choice>
         </div>
         <custom-footer></custom-footer>
@@ -42,7 +42,14 @@ import { mapGetters } from "vuex";
 
 export default {
   name: "App",
-  components: { InputRow, AppTitle, ColorChoice, AnswersRow, GameControl, CustomFooter },
+  components: {
+    InputRow,
+    AppTitle,
+    ColorChoice,
+    AnswersRow,
+    GameControl,
+    CustomFooter,
+  },
   data() {
     return {
       answerMatrix: null,
@@ -53,6 +60,11 @@ export default {
   },
   mounted() {
     this.answerMatrix = this.getGameState;
+  },
+  methods: {
+    onStart() {
+      this.answerMatrix = this.getGameState;
+    },
   },
 };
 </script>

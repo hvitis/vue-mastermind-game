@@ -5,6 +5,6 @@ export default {
   getCurrentRow: (state) => state.currentRow,
   getCurrentAnswers: (state) => state.gameState[state.currentRow],
   isPlaying: (state) => state.gameOver,
-  gameStarted: (state) => state.startGame,
+  gameStarted: (state) => state.gameStarted,
   
 };

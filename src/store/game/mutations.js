@@ -29,6 +29,6 @@ export default {
     state.gameOver = true
   },
   START_GAME(state){
-    state.startGame = true
+    state.gameStarted = true
   }
 };
